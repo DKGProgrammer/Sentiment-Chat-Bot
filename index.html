@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Chatbot</title>
+  <style>
+  body {
+    font-family: sans-serif;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  #chat-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+
+  .message {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 16px;
+    max-width: 70%;
+    clear: both;
+  }
+
+  .user {
+    background-color: #d1e7dd;
+    float: right;
+    text-align: right;
+  }
+
+  .bot {
+    background-color: #e2e3e5;
+    float: left;
+  }
+
+  #input-area {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  #user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  #send-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  #send-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+</head>
+<body>
+<h2>Emotion Chatbot</h2>
+<div id="chat-box"></div>
+<div id="input-area">
+  <input type="text" id="user-input" placeholder="Type your message..." />
+  <button id="send-btn">Send</button>
+</div>
+
+
+  <script>
+    document.getElementById("send-btn").addEventListener("click", sendMessage);
+
+    async function sendMessage() {
+      const input = document.getElementById("user-input");
+      const message = input.value.trim();
+      if (!message) return;
+
+      appendToChat("You", message);
+      input.value = "";
+
+      const response = await fetch("/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await response.json();
+      appendToChat("Bot", data.response);
+    }
+
+  function appendToChat(sender, message) {
+  const chatBox = document.getElementById("chat-box");
+  const messageEl = document.createElement("div");
+  messageEl.classList.add("message");
+
+  if (sender === "You") {
+    messageEl.classList.add("user");
+  } else {
+    messageEl.classList.add("bot");
+  }
+
+  messageEl.innerHTML = `<strong>${sender}:</strong><br>${message}`;
+  chatBox.appendChild(messageEl);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+  </script>
+</body>
+</html>
