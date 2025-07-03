@@ -1,0 +1,15 @@
+{"user": "Hello today I am feeling pretty good", "bot": "I sense you're feeling happy.", "emotion": "happy"}
+{"user": "although now I feel a bit bad", "bot": "I sense your mood changed from happy to sad.", "emotion": "sad"}
+{"user": "I am just feeling down", "bot": "I sense your mood changed from sad to neutral.", "emotion": "neutral"}
+{"user": "Today I feel pretty great", "bot": "I sense your mood changed from neutral to happy.", "emotion": "happy"}
+{"user": "Although now I feel pretty bad", "bot": "I sense your mood changed from happy to neutral.", "emotion": "neutral"}
+{"user": "Im feeling really sad", "bot": "You're still feeling neutral, I see.", "emotion": "neutral"}
+{"user": "Im feeling really sad", "bot": "I sense you're feeling neutral.", "emotion": "neutral"}
+{"user": "Im feeling really sad", "bot": "I sense you're feeling neutral.", "emotion": "neutral"}
+{"user": "Im really sad", "bot": "I sense you're feeling sad.", "emotion": "sad"}
+{"user": "happy", "bot": "I sense your mood changed from sad to happy.", "emotion": "happy"}
+{"user": "bad", "bot": "I sense your mood changed from happy to sad.", "emotion": "sad"}
+{"user": "okay", "bot": "I sense your mood changed from sad to neutral.", "emotion": "neutral"}
+{"user": "Today I am feeling really good", "bot": "I sense your mood changed from neutral to happy.", "emotion": "happy"}
+{"user": "Although now I feel pretty bad", "bot": "I sense your mood changed from happy to neutral.", "emotion": "neutral"}
+{"user": "Now I feel sad", "bot": "I sense your mood changed from neutral to sad.", "emotion": "sad"}
