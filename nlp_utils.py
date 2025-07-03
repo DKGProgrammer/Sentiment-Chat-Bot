@@ -19,12 +19,12 @@ def detect_emotion(text):
     doc = nlp(text.lower())
     vader_score = vader.polarity_scores(text)
     compound = vader_score["compound"]
-    print(compound)
+    
 
     # VADER-based base emotion
     if compound >= 0.5:
         base_emotion = "happy"
-    elif compound <= -0.4767:
+    elif compound < -0.4:
         base_emotion = "sad"
     else:
         base_emotion = "neutral"
